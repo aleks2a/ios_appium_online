@@ -2,10 +2,6 @@ And(/^I tap on skip button on welcome screen$/) do
   puts "Tap skip button"
 end
 
-Then(/^I land on a Home screen$/) do
-  puts "I am on a Home screen"
-end
-
 When(/^I tap on Search button$/) do
   puts "Tap Search button"
 end

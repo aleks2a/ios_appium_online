@@ -1,3 +1,4 @@
+@search
 Feature: Wikipedia Search
 
   Scenario: As Wikipedia User, I would like to perform search
