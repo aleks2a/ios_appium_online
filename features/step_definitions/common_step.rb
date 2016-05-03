@@ -5,8 +5,6 @@ end
 Then(/^I land on a Home screen$/) do
   $driver.find_element(name: "settings")
   $driver.find_element(name: "search")
-
-
 end
 
 Then(/^I land on a Login screen$/) do
