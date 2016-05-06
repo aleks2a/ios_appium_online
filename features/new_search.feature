@@ -20,5 +20,5 @@ Feature: Wikipedia search
     And I press on Search icon on home screen
     Then I land on a Search screen
     And I type "BART" in search field
-    Then I should see 10 results on search result screen
+    Then I should see at least 10 results on search result screen
 

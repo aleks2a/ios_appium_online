@@ -38,7 +38,7 @@ Then(/^I should see "([^"]*)" as (\d+)st result$/) do |text, number|
 end
 
 
-Then(/^I should see (\d+) results on search result screen$/) do |number|
+Then(/^I should see at least (\d+) results on search result screen$/) do |number|
   # $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[2].click
 
   array = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")
