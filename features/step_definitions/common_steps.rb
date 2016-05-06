@@ -1,5 +1,6 @@
 When(/^I land on a Settings screen$/) do
-  puts "I am on a Settings screen"
+  $driver.find_element(name: "close")
+  $driver.find_element(name: "Settings")
 end
 
 Then(/^I land on a Home screen$/) do
@@ -8,7 +9,8 @@ Then(/^I land on a Home screen$/) do
 end
 
 Then(/^I land on a Login screen$/) do
-  puts "I am on a Login screen"
+  $driver.find_element(name: "username_field")
+  $driver.find_element(name: "password_field")
 end
 
 Given(/^I land on Welcome screen$/) do

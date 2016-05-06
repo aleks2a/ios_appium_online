@@ -20,6 +20,7 @@ Then(/^I see (\d+)st result includes San Francisco$/) do |index|
 end
 
 When(/^I type "(.*?)" in search field$/) do |search_term|
+  sleep 2
   $driver.find_element(name: "search_field").send_keys search_term
 end
 
@@ -27,8 +28,7 @@ And(/^I press on Search icon on home screen$/) do
   $driver.find_element(name: "search_button").click
 end
 
-
-Then(/^I should see "([^"]*)" as 1st result$/) do |text|
+Then(/^I should see "([^"]*)" as (\d+)st result$/) do |text, number|
   text_from_device = $driver.find_element(name: "search_results").find_element(class: "UIATableCell").find_element(class: "UIAStaticText").text
   # $driver.find_element(name: "search_results").find_element(class: "UIAStaticText")
 
@@ -37,3 +37,11 @@ Then(/^I should see "([^"]*)" as 1st result$/) do |text|
   end
 end
 
+
+Then(/^I should see (\d+) results on search result screen$/) do |number|
+  # $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[2].click
+
+  array = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")
+
+
+end
