@@ -29,7 +29,7 @@ And(/^I press on Search icon on home screen$/) do
 end
 
 Then(/^I should see "([^"]*)" as (\d+)st result$/) do |text, number|
-  text_from_device = $driver.find_element(name: "search_results").find_element(class: "UIATableCell").find_element(class: "UIAStaticText").text
+  text_from_device = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[number.to_i - 1].find_element(class: "UIAStaticText").text
   # $driver.find_element(name: "search_results").find_element(class: "UIAStaticText")
 
   if text_from_device != text
@@ -42,6 +42,9 @@ Then(/^I should see at least (\d+) results on search result screen$/) do |number
   # $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[2].click
 
   array = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")
+  if array.size < number.to_i
+    fail("Expected to see at least #{number} results")
+  end
 
 
 end

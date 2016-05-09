@@ -10,7 +10,7 @@ Feature: Wikipedia search
     Then I land on a Search screen
     And I type "BART" in search field
     Then I should see "Bay Area Rapid Transit" as 1st result
-@wip
+  @wip
   Scenario: Verify number of search results
     Given I land on Welcome screen
     Then I press on Get Started button on Welcome screen
