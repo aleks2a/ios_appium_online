@@ -29,7 +29,8 @@ And(/^I press on Search icon on home screen$/) do
 end
 
 Then(/^I should see "([^"]*)" as (\d+)st result$/) do |text, number|
-  text_from_device = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[number.to_i - 1].find_element(class: "UIAStaticText").text
+  text_from_device =
+      $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[number.to_i - 1].find_element(class: "UIAStaticText").text
   # $driver.find_element(name: "search_results").find_element(class: "UIAStaticText")
 
   if text_from_device != text
@@ -41,10 +42,25 @@ end
 Then(/^I should see at least (\d+) results on search result screen$/) do |number|
   # $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[2].click
 
-  array = $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")
+  array =
+      $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")
   if array.size < number.to_i
     fail("Expected to see at least #{number} results")
   end
 
 
+end
+
+And(/^I tap on (\d+)(?:st|nd|rd|th)? result$/) do |cell|
+  $driver.find_element(name: "search_results").find_elements(class: "UIATableCell")[cell.to_i - 1].click
+end
+
+And(/^I verify that article title includes "([^"]*)"$/) do |expected_result|
+  actual_result =
+      $driver.find_element(:xpath, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAStaticText[1]").text
+  fail ("Can not find #{expected_result}") unless actual_result == expected_result
+end
+
+Then(/^I can see "([^"]*)" in recent history$/) do |most_recent_term|
+  puts $driver.find_element(class: "UIATableView").find_elements(class: "UIATableCell")[0].attribute(:name)
 end

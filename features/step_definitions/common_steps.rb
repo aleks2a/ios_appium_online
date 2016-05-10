@@ -24,3 +24,13 @@ end
 And(/^I press on Continue button$/) do
   $driver.find_element(name: "CONTINUE").click
 end
+
+Then(/^I scroll until I see "([^"]*)"$/) do |menu_item|
+  until $driver.find_element(:name, "#{menu_item}").displayed? do
+    $driver.execute_script('mobile: scroll', direction: 'down')
+  end
+end
+
+Then(/^I tap on "([^"]*)" button$/) do |element|
+  $driver.find_element(name: "#{element}").click
+end
