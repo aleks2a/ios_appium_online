@@ -24,3 +24,17 @@ end
 And(/^I press on Continue button$/) do
   $driver.find_element(name: "CONTINUE").click
 end
+
+And(/^I scroll until I see "([^"]*)"$/) do |text|
+  until $driver.find_element(:name,"#{text}").displayed? do
+    $driver.execute_script('mobile: scroll', direction: 'down')
+  end
+end
+
+Then(/^I tap on "([^"]*)" button$/) do |element|
+  $driver.find_element(name: "#{element}").click
+end
+
+Then(/^I can see "([^"]*)" in recent history$/) do |text|
+  puts $driver.find_element(class: "UIATableView").find_elements(class: "UIATableCell")[0].attribute(:name)
+end

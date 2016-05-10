@@ -46,5 +46,15 @@ Then(/^I should see at least (\d+) results on search result screen$/) do |number
     fail("Expected to see at least #{number} results")
   end
 
+end
 
+When(/^I tap on (\d+)(?:st|nd|rd|th)? result$/) do |cell|
+  $driver.find_element(name: "search_results").
+      find_elements(class: "UIATableCell")[cell.to_i - 1].click
+end
+
+And(/^I verify that article title include "([^"]*)"$/) do |expected_result|
+  actual_result =
+      $driver.find_element(:xpath, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAWebView[1]/UIAStaticText[1]").text
+  fail ("Can not find #{expected_result}") unless actual_result == expected_result
 end
