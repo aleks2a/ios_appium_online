@@ -1,4 +1,3 @@
-@login
 Feature: Wikipedia login logout functionality
   @high_priority
   Scenario: As a Wikipedia user I should be able to login with my credentials

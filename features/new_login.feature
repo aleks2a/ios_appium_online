@@ -1,5 +1,6 @@
+@regression
 Feature: Wikipedia login logout functionality
-
+@login
   Scenario: As a Wikipedia user I should be able to login with my credentials
     Given I land on Welcome screen
     Then I press on Get Started button on Welcome screen
@@ -11,7 +12,7 @@ Feature: Wikipedia login logout functionality
     When I tap on Login button on Settings screen
     Then I land on a Login screen
     And I type "Aleksskela" to username field
-    Then I type "root1234" to password field
+    Then I type "root1234111" to password field
     When I tap on Login button on Login screen
     And I should be signed in as user "Aleksskela"
 

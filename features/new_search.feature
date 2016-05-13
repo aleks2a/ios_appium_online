@@ -1,3 +1,4 @@
+@regression
 Feature: Wikipedia search
   @new_search
   Scenario: User able to search in Wikipedia app

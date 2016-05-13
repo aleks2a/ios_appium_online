@@ -1,0 +1,5 @@
+login: --format html --out report.html --format pretty --tags @login
+
+search: --format html --out report.html --format pretty --tags @new_search
+
+regression: --format html --out report.html --format pretty --tags @regression
