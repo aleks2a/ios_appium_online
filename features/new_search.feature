@@ -25,7 +25,6 @@ Feature: Wikipedia search
     And I tap on 1st result
     And I verify that article title includes "Bay Area Rapid Transit"
 
-  @wip
   Scenario: Recent history
     Given I land on Welcome screen
     Then I press on Get Started button on Welcome screen

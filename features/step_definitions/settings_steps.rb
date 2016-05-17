@@ -6,7 +6,7 @@ end
 
 
 And(/^I verify that Show lanquages on search toggle is (on|off)$/) do |state|
-  #actual_state = $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").attribute("value")
+  puts actual_state = $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").attribute("value")
   actual_state = $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").attribute(:value)
   if state == "on"
     fail("Expecting toggle to be off") if actual_state == 0

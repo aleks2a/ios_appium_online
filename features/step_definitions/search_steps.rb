@@ -62,8 +62,7 @@ Then(/^I can see "([^"]*)" in recent history$/) do |most_recent_term|
 end
 
 Then(/^I should not see Lanquages on search screen$/) do
-  $driver.exists{$driver.find_element(name: "French")}
-#2
-#3
-#4
+  $driver.find_element(name: "close").click
+  $driver.find_element(name: "search_button").click
+  fail "Language option should not be displayed " if $driver.exists{$driver.find_element(name: "English")}
 end

@@ -9,8 +9,11 @@ Feature: Wikipedia settings screen functionality
     When I tap on Settings button
     And I land on a Settings screen
     Then I press on Show lanquages on search toggle
+    And I verify that Show lanquages on search toggle is on
+    Then I press on Show lanquages on search toggle
     And I verify that Show lanquages on search toggle is off
-    #TODO goto search screen
+
+ #TODO goto search screen
     Then I should not see Lanquages on search screen
 
 
