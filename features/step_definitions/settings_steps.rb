@@ -15,3 +15,16 @@ And(/^I verify that Show lanquages on search toggle is (on|off)$/) do |state|
   end
 end
 
+Then(/^I tap on Privacy policy$/) do
+  $driver.find_element(:name, "Privacy policy").click
+end
+
+And(/^I land on Privacy policy web page$/) do
+  context = "WEBVIEW_1"
+  # add pry to find context
+  binding.pry
+  Utility.wait_for{$driver.available_contexts.include?("#{context}")}
+  $driver.set_context context
+  fail "Did not land on Privacy Screen" unless
+      $driver.find_element(:id, "section_0").text == "Privacy policy"
+end

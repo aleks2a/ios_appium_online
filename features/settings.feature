@@ -1,5 +1,6 @@
 Feature: Wikipedia settings screen functionality
-  @wip
+
+  @settings
   Scenario: As a Wikipedia User I can turn of lanquages
     Given I land on Welcome screen
     Then I press on Get Started button on Welcome screen
