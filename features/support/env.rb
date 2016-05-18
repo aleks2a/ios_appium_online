@@ -1,5 +1,6 @@
 require 'cucumber'
 require 'appium_lib'
+require 'pry'
 
 APP_PATH = ENV['APP'] ||  File.join(File.dirname(__FILE__), "..", "..", "wikipedia.zip")
 DEFAULT_TIMEOUT = 20
