@@ -1,11 +1,11 @@
-Then(/^I press on Show lanquages on search toggle$/) do
+Then(/^I press on Show languages on search toggle$/) do
   # $driver.find_element(:xpath, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[4]/UIASwitch[1]")
   # $driver.find_element(xpath: "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[4]/UIASwitch[1]")
   $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").click
 end
 
 
-And(/^I verify that Show lanquages on search toggle is (on|off)$/) do |state|
+And(/^I verify that Show languages on search toggle is (on|off)$/) do |state|
   #actual_state = $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").attribute("value")
   actual_state = $driver.find_element(name: "Show languages on search").find_element(class: "UIASwitch").attribute(:value)
   if state == "on"
@@ -20,7 +20,6 @@ Then(/^I tap on Privacy policy$/) do
 end
 
 And(/^I land on Privacy policy web page$/) do
-  # binding.pry
   context = "WEBVIEW_1"
   Utility.wait_for{$driver.available_contexts.include?("#{context}")}
   $driver.set_context context

@@ -61,7 +61,7 @@ Then(/^I can see "([^"]*)" in recent history$/) do |most_recent_term|
   puts $driver.find_element(class: "UIATableView").find_elements(class: "UIATableCell")[0].attribute(:name)
 end
 
-Then(/^I should not see Lanquages on search screen$/) do
+Then(/^I should not see Languages on search screen$/) do
   $driver.find_element(name: "close").click
   $driver.find_element(name: "search_button").click
   fail "Language option should not be displayed" if $driver.exists{$driver.find_element(name: "English")}
